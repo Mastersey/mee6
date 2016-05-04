@@ -45,6 +45,7 @@ class Moderator(Plugin):
         authorized = False
         for role in member.roles:
             if (role.name in role_names or
+                role.id in role_names or
                 role.permissions.manage_server):
                 authorized = True
                 break
@@ -282,8 +283,8 @@ class Moderator(Plugin):
         if message.author.id == self.mee6.user.id:
             return
 
-        await self.clear_num(message)
-        await self.clear_user(message)
+        #await self.clear_num(message)
+        #await self.clear_user(message)
         await self.banned_words(message)
         await self.mute(message)
         await self.unmute(message)
